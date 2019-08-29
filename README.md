@@ -23,7 +23,7 @@ The idea behind these networks is being able to count with a kind of memory wher
 Without lose of generality, assume a recurrent neural network has only three layers: input, hidden and output,
 and that its hidden layer is connected to itself, apart from to the output layer. Let <img src="/tex/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode&sanitize=true" align=middle width=9.86687624999999pt height=14.15524440000002pt/>, <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> y <img src="/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> the number of 
 existing neurons in the input, hidden and output layer, respectively. Consider <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> as the indicator of the observation times.
-Sea <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> el indicador de los tiempos de observación. Defining
+Sea <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/>. Defining
 
 <p align="center"><img src="/tex/5a0fbec059507f6a0dd3fee01d14aa57.svg?invert_in_darkmode&sanitize=true" align=middle width=675.6170553pt height=308.28251685pt/></p>
 
@@ -39,7 +39,7 @@ From now on, the following matrix notation will be used in order to simplify the
 
 So, considering this notation, the recurrent neural network can be defined by the following expresion:
 
-<p align="center"><img src="/tex/9d19327353a52171d5f7e3e0c48578fc.svg?invert_in_darkmode&sanitize=true" align=middle width=381.4622526pt height=18.312383099999998pt/></p>\
+<p align="center"><img src="/tex/9d19327353a52171d5f7e3e0c48578fc.svg?invert_in_darkmode&sanitize=true" align=middle width=381.4622526pt height=18.312383099999998pt/></p>
 
 If several hidden layers exist, a layer will receive as input the initial inputs, in addition to the outputs from the previous layer,
 and the final output layer will receive as inputs the outputs from all hidden layers. This makes the training of deep networks easier due to
