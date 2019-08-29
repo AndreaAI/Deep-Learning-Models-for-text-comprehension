@@ -20,12 +20,41 @@ The idea behind these networks is being able to count with a kind of memory wher
 
 ![Recurrent neural network schema](/images/rnn4.png)
 
+Without lose of generality, assume a recurrent neural network has only three layers: input, hidden and output,
+and that its hidden layer is connected to itself, apart from to the output layer. Let <img src="/tex/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode&sanitize=true" align=middle width=9.86687624999999pt height=14.15524440000002pt/>, <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> y <img src="/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> the number of 
+existing neurons in the input, hidden and output layer, respectively. Consider <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> as the indicator of the observation times.
+Sea <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> el indicador de los tiempos de observación. Defining
 
-### Backpropagation and gradient descendent
+<p align="center"><img src="/tex/26e6be5b43d59d89b15d472b0e752cd5.svg?invert_in_darkmode&sanitize=true" align=middle width=675.6170553pt height=308.28251685pt/></p>
+
+A recurrent neural network can be defined by the following expression:
+
+<p align="center"><img src="/tex/403b98c80b7b3daad98b5692583811c1.svg?invert_in_darkmode&sanitize=true" align=middle width=495.13731629999995pt height=50.1713685pt/></p>
+
+\vspace{0.3cm}
+
+From now on, the following matrix notation will be used in order to simplify the formulas defining the networks. This representation can be seen as considering that there is only one node per each layer.
+
+<p align="center"><img src="/tex/82e3874fd3cc33463930d39d8e4f0ab8.svg?invert_in_darkmode&sanitize=true" align=middle width=675.61705035pt height=292.74160905pt/></p>
+
+
+So, considering this notation, the recurrent neural network can be defined by the following expresion:
+
+<p align="center"><img src="/tex/9d19327353a52171d5f7e3e0c48578fc.svg?invert_in_darkmode&sanitize=true" align=middle width=381.4622526pt height=18.312383099999998pt/></p>\
+
+If several hidden layers exist, a layer will receive as input the initial inputs, in addition to the outputs from the previous layer,
+and the final output layer will receive as inputs the outputs from all hidden layers. This makes the training of deep networks easier due to
+the number of processing steps from the bottom to the top of the network, and also it allows to soft the gradient vanishing poblem.
+A representation of a network with several hidden layers can be seen in the next picture:
+
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/deeprnn.png" width="700" height="450">
 </p>
+
+
+### Backpropagation and gradient descendent
+...
 
 ### Long Short term Memory Networks (LSTM)
 <p align="center">
