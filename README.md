@@ -25,17 +25,16 @@ and that its hidden layer is connected to itself, apart from to the output layer
 existing neurons in the input, hidden and output layer, respectively. Consider <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> as the indicator of the observation times.
 Sea <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> el indicador de los tiempos de observación. Defining
 
-<p align="center"><img src="/tex/26e6be5b43d59d89b15d472b0e752cd5.svg?invert_in_darkmode&sanitize=true" align=middle width=675.6170553pt height=308.28251685pt/></p>
+<p align="center"><img src="/tex/5a0fbec059507f6a0dd3fee01d14aa57.svg?invert_in_darkmode&sanitize=true" align=middle width=675.6170553pt height=308.28251685pt/></p>
 
 A recurrent neural network can be defined by the following expression:
 
 <p align="center"><img src="/tex/403b98c80b7b3daad98b5692583811c1.svg?invert_in_darkmode&sanitize=true" align=middle width=495.13731629999995pt height=50.1713685pt/></p>
 
-\vspace{0.3cm}
 
 From now on, the following matrix notation will be used in order to simplify the formulas defining the networks. This representation can be seen as considering that there is only one node per each layer.
 
-<p align="center"><img src="/tex/82e3874fd3cc33463930d39d8e4f0ab8.svg?invert_in_darkmode&sanitize=true" align=middle width=675.61705035pt height=292.74160905pt/></p>
+<p align="center"><img src="/tex/957908aa970145df6161eb5b5b59650e.svg?invert_in_darkmode&sanitize=true" align=middle width=675.61705035pt height=292.74160905pt/></p>
 
 
 So, considering this notation, the recurrent neural network can be defined by the following expresion:
