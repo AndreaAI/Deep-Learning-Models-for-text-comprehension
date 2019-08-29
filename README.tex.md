@@ -22,8 +22,7 @@ The idea behind these networks is being able to count with a kind of memory wher
 
 Without lose of generality, assume a recurrent neural network has only three layers: input, hidden and output,
 and that its hidden layer is connected to itself, apart from to the output layer. Let $n$, $m$ y $l$ the number of 
-existing neurons in the input, hidden and output layer, respectively. Consider $t$ as the indicator of the observation times.
-Sea $t$ el indicador de los tiempos de observación. Defining
+existing neurons in the input, hidden and output layer, respectively. Consider $t$ as the indicator of the observation times. Defining
 
 \begin{itemize}
 \item[$\triangleright$] $x_{t}^{i}$ the inputs of the network at instant $t$,  $i=1,\dots,n$
@@ -56,7 +55,7 @@ From now on, the following matrix notation will be used in order to simplify the
 
 So, considering this notation, the recurrent neural network can be defined by the following expresion:
 
-$$ h_{t}=f(W^{1}x_{t} + W^{2}h_{t-1} + \theta^{1}),\hskip0.5cm y_{t} = g (W^{3}h_{t} + \theta^{2}).$$\
+$$ h_{t}=f(W^{1}x_{t} + W^{2}h_{t-1} + \theta^{1}),\hskip0.5cm y_{t} = g (W^{3}h_{t} + \theta^{2}).$$
 
 If several hidden layers exist, a layer will receive as input the initial inputs, in addition to the outputs from the previous layer,
 and the final output layer will receive as inputs the outputs from all hidden layers. This makes the training of deep networks easier due to
