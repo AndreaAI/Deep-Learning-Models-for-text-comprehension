@@ -26,32 +26,31 @@ existing neurons in the input, hidden and output layer, respectively. Consider $
 Sea $t$ el indicador de los tiempos de observación. Defining
 
 \begin{itemize}
-	\item[$\triangleright$] $x_{t}^{i}$ the inputs of the network at instant $t$,  $i=1,\dots,n$
-	\item[$\triangleright$] $h_{t}^{j}$ the outputs of them hidden layer at instant $t$,  $j=1,\dots,m$ 
-	\item[$\triangleright$] $y_{t}^{k}$ the final outputs of the network at instant $t$, $k=1,\dots,l$
-	\item[$\triangleright$] $f$ y $g$ the exit function of the hidden and output layer, respectively
-	\item[$\triangleright$] $w^{1}_{ij}$ the weights associated to the connections between the neurons in the input layer and in the hidden one
-	\item[$\triangleright$] $w^{2}_{jh}$ the weights associated to the connections between the neurons in the hidden layer
-	\item[$\triangleright$] $w^{3}_{jk}$ the weights associated to the connections between the neurons in the hidden layer and in the output one
-	\item[$\triangleright$] $\theta^{1}_{j}$ y $\theta^{2}_{k}$ the bias associated to neuron $j$ from the hidden layer and neuron $k$ from the output layer
+\item[$\triangleright$] $x_{t}^{i}$ the inputs of the network at instant $t$,  $i=1,\dots,n$
+\item[$\triangleright$] $h_{t}^{j}$ the outputs of them hidden layer at instant $t$,  $j=1,\dots,m$ 
+\item[$\triangleright$] $y_{t}^{k}$ the final outputs of the network at instant $t$, $k=1,\dots,l$
+\item[$\triangleright$] $f$ y $g$ the exit function of the hidden and output layer, respectively
+\item[$\triangleright$] $w^{1}_{ij}$ the weights associated to the connections between the neurons in the input layer and in the hidden one
+\item[$\triangleright$] $w^{2}_{jh}$ the weights associated to the connections between the neurons in the hidden layer
+\item[$\triangleright$] $w^{3}_{jk}$ the weights associated to the connections between the neurons in the hidden layer and in the output one
+\item[$\triangleright$] $\theta^{1}_{j}$ y $\theta^{2}_{k}$ the bias associated to neuron $j$ from the hidden layer and neuron $k$ from the output layer
 \end{itemize}
 
 A recurrent neural network can be defined by the following expression:
 
 $$ h_{t}^{j}=f\bigg(\sum_{i=1}^{n}w^{1}_{ij}x_{t}^{i} + \sum_{h=1}^{m}w^{2}_{jh}h_{t-1}^{h} + \theta^{1}_{j}\bigg),\hskip0.5cm y_{t}^{k} = g \bigg( \sum_{j=1}^{l}w^{3}_{jk}h_{t}^{j} + \theta^{2}_{j}\bigg).$$
 
-\vspace{0.3cm}
 
 From now on, the following matrix notation will be used in order to simplify the formulas defining the networks. This representation can be seen as considering that there is only one node per each layer.
 
 \begin{itemize}
-	\item[$\triangleright$]  $x_{t}=(x_{t}^{1},\dots,x_{t}^{n})$
-	\item[$\triangleright$] $h_{t}=(h_{t}^{1},\dots,h_{t}^{m})$
-	\item[$\triangleright$] $y_{t}=(y_{t}^{1},\dots,y_{t}^{l})$
-	\item[$\triangleright$] $W^{1}=(w^{1}_{ij})$ the matrix of the weights associated to the connections between the neurons in the input layer and in the hidden one
-	\item[$\triangleright$] $W^{2}=(w^{2}_{jh})$ the matrix of the weights associated to the connections between the neurons in the hidden layer
-	\item[$\triangleright$] $W^{3}=(w^{3}_{jk})$ the matrix of the weights associated to the connections between the neurons in the hidden layer and in the output one
-	\item[$\triangleright$] $\theta^{1}=(\theta^{1}_{j})$ y $\theta^{2}=(\theta^{2}_{k})$ the matrixes (vectors) of the bias associated to neuron $j$ from the hidden layer and neuron $k$ from the output layer
+\item[$\triangleright$]  $x_{t}=(x_{t}^{1},\dots,x_{t}^{n})$
+\item[$\triangleright$] $h_{t}=(h_{t}^{1},\dots,h_{t}^{m})$
+\item[$\triangleright$] $y_{t}=(y_{t}^{1},\dots,y_{t}^{l})$
+\item[$\triangleright$] $W^{1}=(w^{1}_{ij})$ the matrix of the weights associated to the connections between the neurons in the input layer and in the hidden one
+\item[$\triangleright$] $W^{2}=(w^{2}_{jh})$ the matrix of the weights associated to the connections between the neurons in the hidden layer
+\item[$\triangleright$] $W^{3}=(w^{3}_{jk})$ the matrix of the weights associated to the connections between the neurons in the hidden layer and in the output one
+\item[$\triangleright$] $\theta^{1}=(\theta^{1}_{j})$ y $\theta^{2}=(\theta^{2}_{k})$ the matrixes (vectors) of the bias associated to neuron $j$ from the hidden layer and neuron $k$ from the output layer
 \end{itemize}
 
 
