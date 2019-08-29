@@ -1,7 +1,0 @@
-Suponer, sin pérdida de generalidad, que se tiene una red neuronal recurrente con solo tres capas: entrada, oculta y salida, y cuya capa oculta está conectada consigo misma además de con la capa de salida. Sea <img src="/tex/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode&sanitize=true" align=middle width=9.86687624999999pt height=14.15524440000002pt/>, <img src="/tex/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode&sanitize=true" align=middle width=14.433101099999991pt height=14.15524440000002pt/> y <img src="/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> el número de neuronas existentes en la capa de entrada, oculta y salida, respectivamente. Sea <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/> el indicador de los tiempos de observación. Se definen
-
-<p align="center"><img src="/tex/10de8d816672f58d12698f3a32cf1681.svg?invert_in_darkmode&sanitize=true" align=middle width=675.6170965499999pt height=269.64058439999997pt/></p>
-
-Puede definirse la red neuronal recurrente mediante la siguiente expresión:
-
-<p align="center"><img src="/tex/403b98c80b7b3daad98b5692583811c1.svg?invert_in_darkmode&sanitize=true" align=middle width=495.13731629999995pt height=50.1713685pt/></p>
