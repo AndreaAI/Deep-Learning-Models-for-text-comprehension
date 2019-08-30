@@ -130,13 +130,14 @@ Memory networks, as the name implies, consist of a memory $\textbf{m}$ (an array
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memn2.png" width="550" height="220">
 </p>
 
-
+In the basic model, $I$ get an input $x$ that can be encoded into an internal representation before moving forward to the component $G$, and this component will it in the next available memory slot. The neural network is introduced in the component $O$, that in the case of question answering, will be the one in charged of finding the $k$ supporting sentences that answer the matter in question, being $k\leq N$ and $N$ the number of memory slots. $R$ will generate a response from the input $x$ (a question in this case) and the selected supporting memories. For $k$ recurrences, the schema of a memory neural network can be represented as follows:
 
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memnn21.png" width="550" height="320">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memnn22.png" width="600" height="230">
 </p>
+
 
 ### End-to-End Memory Networks (MemN2N)
 
