@@ -46,7 +46,8 @@ def vectorize_triple_todo(data, questions, entities, word_idx, sentence_size, me
     for ent in entities:
       if ent in query or ent in answer:
         ent_in_questions.append(ent)
-        ent_in_questions = sorted(reduce(lambda x, y: x | y, (set(list([ent])) for ent in ent_in_questions)))
+        
+    ent_in_questions = sorted(reduce(lambda x, y: x | y, (set(list([ent])) for ent in ent_in_questions)))
         
     for story in data:
       story_corresp = []
