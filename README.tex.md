@@ -124,9 +124,14 @@ where $x_{t}$ is the vector representing the entrance to the corresponding layer
 
 ## Memory Networks
 
+Memory networks, as the name implies, consist of a memory $\textbf{m}$ (an array of objects named as $\textbf{m}_{i}$) on which we can read and write information, and four components. The input component, $I$, is the one in charge of encoding the input $x$ into the corresponding internal representation, $I(x)$. The generalization component, $G$, updates every memory $m_{i}$ with the new input: \mbox{$m_{i}=G(m_{i}$, $I(x)$, \textbf{m})}, $\forall i=1,\dots,N$. The output component, $O$, is in charged of processing an output $o$ from the new input $I(x)$ and  the memory $\textbf{m}$, $o=O(I(x),\textup{\textbf{m}})$. Finally, the response component $R$ decodes the output $o$ providing an interpretable answer $r$, like a text or an action: $r=R(o)$. In any of these components, any machine learning model could be used, but in this case we will focus on having a recurrent neural network in some of the components, obtaining this way a memory network.
+
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memn2.png" width="550" height="220">
 </p>
+
+
+
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memnn21.png" width="550" height="320">
