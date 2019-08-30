@@ -73,7 +73,7 @@ A representation of a network with several hidden layers can be seen in the next
 
 ### Long Short term Memory Networks (LSTM)
 
-LSTM are recurrent neural networks whose neurons in the hidden layer are replaced my memory cells. These cells have a 'gates system' that decides what information should be stores in the memory, what information should be forgotten and what should be tranferred to the rest of the layers. Typically, the activation functions considered in this kind of networks are the sigmoid funcion and the hyperbolic tangent. The structure of LSTM hidden layers can be represented, for a time instant $t$t, as follows:
+LSTM are recurrent neural networks whose neurons in the hidden layer are replaced my memory cells. These cells have a 'gates system' that decides what information should be stores in the memory, what information should be forgotten and what should be tranferred to the rest of the layers. Typically, the activation functions considered in this kind of networks are the sigmoid funcion and the hyperbolic tangent. The structure of LSTM hidden layers can be represented, for a time instant $t$, as follows:
 
 \begin{table}[htbp]
 	\begin{center}
@@ -86,9 +86,9 @@ LSTM are recurrent neural networks whose neurons in the hidden layer are replace
 			& \\
 			$o_{t}=\sigma(W_{1}^{o}x_{t}+W_{2}^{o}h_{t-1})$, & output gate\\			
 			& \\
-			$g_{t}=\varsigma(W_{1}^{g}x_{t}+W_{2}^{g}h_{t-1})$, & entrance to hidden state\\
+			$g_{t}=\varsigma(W_{1}^{g}x_{t}+W_{2}^{g}h_{t-1})$, & hidden state input\\
 			& \\
-			$h_{t}=\varsigma(m_{t})\ast o_{t}$, & exit from hidden state\\						
+			$h_{t}=\varsigma(m_{t})\ast o_{t}$, & hidden state output\\						
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -100,6 +100,24 @@ where $x_{t}$ is the vector representing the entrance to the corresponding layer
 </p>
 
 ### Gated Recurrent Units (GRU)
+
+Gated Recurrent Units, GRU, have less parameters than LSTM. They combine the input and forget gates into a unique one called update gate, and also the inner memory with the hidden state. Its structure is defined by the following expressions:
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ll}
+			$z_{t}=\sigma(W_{1}^{z}x_{t}+W_{2}^{z}h_{t-1})$, & update gate\\
+			& \\
+			$r_{t}=\sigma(W_{1}^{r}x_{t}+W_{2}^{r}h_{t-1})$, & reset gate\\
+			& \\
+			$h_{t}=(1-z_{t})\ast h_{t-1}+z_{t} \ast\varsigma(W_{1}^{h}x_{t}+W_{2}^{h}(r_{t}\ast h_{t-1}))$, & hidden state output\\						
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate. In each instant of time, based on $x_{t}$, the \textit{LSTM} generates the corresponding $h_{t}$ y $m_{t}$.In each instant of time, based on $x_{t}$, the \textit{GRU} generates the corresponding $h_{t}$.
+
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/GRU.png" width="450" height="350">
 </p>
