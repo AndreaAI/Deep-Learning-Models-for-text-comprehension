@@ -86,9 +86,9 @@ LSTM are recurrent neural networks whose neurons in the hidden layer are replace
 			& \\
 			$o_{t}=\sigma(W_{1}^{o}x_{t}+W_{2}^{o}h_{t-1})$, & output gate\\			
 			& \\
-			$g_{t}=\varsigma(W_{1}^{g}x_{t}+W_{2}^{g}h_{t-1})$, & hidden state input\\
+			$g_{t}=\varsigma(W_{1}^{g}x_{t}+W_{2}^{g}h_{t-1})$, & input hidden state\\
 			& \\
-			$h_{t}=\varsigma(m_{t})\ast o_{t}$, & hidden state output\\						
+			$h_{t}=\varsigma(m_{t})\ast o_{t}$, & output hidden state\\						
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -110,7 +110,7 @@ Gated Recurrent Units, GRU, have less parameters than LSTM. They combine the inp
 			& \\
 			$r_{t}=\sigma(W_{1}^{r}x_{t}+W_{2}^{r}h_{t-1})$, & reset gate\\
 			& \\
-			$h_{t}=(1-z_{t})\ast h_{t-1}+z_{t} \ast\varsigma(W_{1}^{h}x_{t}+W_{2}^{h}(r_{t}\ast h_{t-1}))$, & hidden state output\\						
+			$h_{t}=(1-z_{t})\ast h_{t-1}+z_{t} \ast\varsigma(W_{1}^{h}x_{t}+W_{2}^{h}(r_{t}\ast h_{t-1}))$, & output hidden state\\						
 		\end{tabular}
 	\end{center}
 \end{table}
