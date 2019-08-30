@@ -93,7 +93,7 @@ LSTM are recurrent neural networks whose neurons in the hidden layer are replace
 	\end{center}
 \end{table}
 
-where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate. In each instant of time, based on $x_{t}$, the \textit{LSTM} generates the corresponding $h_{t}$ y $m_{t}$.
+where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate. In each instant of time, based on $x_{t}$, the LSTM generates the corresponding $h_{t}$ y $m_{t}$.
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/LSTM2.png" width="450" height="320">
@@ -116,7 +116,7 @@ Gated Recurrent Units, GRU, have less parameters than LSTM. They combine the inp
 \end{table}
 
 
-where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate. In each instant of time, based on $x_{t}$, the \textit{LSTM} generates the corresponding $h_{t}$ y $m_{t}$.In each instant of time, based on $x_{t}$, the \textit{GRU} generates the corresponding $h_{t}$.
+where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate.In each instant of time, based on $x_{t}$, the GRU generates the corresponding $h_{t}$.
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/GRU.png" width="450" height="350">
