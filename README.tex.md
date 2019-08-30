@@ -72,6 +72,29 @@ A representation of a network with several hidden layers can be seen in the next
 ...
 
 ### Long Short term Memory Networks (LSTM)
+
+LSTM are recurrent neural networks whose neurons in the hidden layer are replaced my memory cells. These cells have a 'gates system' that decides what information should be stores in the memory, what information should be forgotten and what should be tranferred to the rest of the layers. Typically, the activation functions considered in this kind of networks are the sigmoid funcion and the hyperbolic tangent. The structure of LSTM hidden layers can be represented, for a time instant $t$t, as follows:
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{ll}
+			$m_{t}=f_{t}\ast m_{t-1}+g_{t}\ast i_{t}$, & inner memory \\
+			&\\
+			$i_{t}=\sigma(W_{1}^{i}x_{t}+W_{2}^{i}h_{t-1})$, & input gate\\
+			& \\
+			$f_{t}=\sigma(W_{1}^{f}x_{t}+W_{2}^{f}h_{t-1})$, & forget gate\\
+			& \\
+			$o_{t}=\sigma(W_{1}^{o}x_{t}+W_{2}^{o}h_{t-1})$, & output gate\\			
+			& \\
+			$g_{t}=\varsigma(W_{1}^{g}x_{t}+W_{2}^{g}h_{t-1})$, & entrance to hidden state\\
+			& \\
+			$h_{t}=\varsigma(m_{t})\ast o_{t}$, & exit from hidden state\\						
+		\end{tabular}
+	\end{center}
+\end{table}
+
+where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate. In each instant of time, based on $x_{t}$, the \textit{LSTM} generates the corresponding $h_{t}$ y $m_{t}$.
+
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/LSTM2.png" width="450" height="320">
 </p>
