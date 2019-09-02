@@ -8,9 +8,9 @@ This repository contains information and explanation about Neural Networks and s
 Artificial neural networks (ANN) are mathematical algorithms rising up from the idea of imitating biological neural networks behaviour,
 particularly human ones.
 
-Following this human brain simulation, these networks consist of a set of artificial neurons (nodes) distributed in different interconnected layers with some specific configuration. A network counts with at least two layers, an input one and an output one, and some hidden layers can be also present, and they will affect the configuration complexity. Every connection between two neurons has a weight associated, which indicates the importance of that connection, and it will be used to weight the inputs of the corresponding neuron, together with a bias. These weights will need to be estimated from the dataset; this is called the learning process or training of the neural network.
+Following this human brain simulation, these networks consist of a set of artificial neurons (nodes) distributed in different interconnected layers with some specific configuration. A network counts with at least two layers, an input one and an output one, and some hidden layers can be also present, and they will affect the configuration complexity. Every connection between two neurons has an associated weight, which indicates the importance of that connection, and it will be used to weight the inputs of the corresponding neuron, together with a bias. These weights will need to be estimated from the dataset; this is called the learning process or training of the neural network.
 
-Neural networks, in terms of configuration, can be feedforward (without feedback) or recurrent netwoks, depeding on if the output of a neuron can only be the input of neurons in the next layer or, on the contrary, the output of a neuron can also be the input of neurons in previous layers or in the current one.
+Neural networks, in terms of configuration, can be feedforward (without feedback) or recurrent networks, depending on if the output of a neuron can only be the input of neurons in the next layer or, on the contrary, the output of a neuron can also be the input of neurons in previous layers or in the current one.
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/nn.PNG" width="700" height="420">
@@ -20,15 +20,15 @@ The idea behind these networks is being able to count with a kind of memory wher
 
 ![Recurrent neural network schema](/images/rnn4.png)
 
-Without lose of generality, assume a recurrent neural network has only three layers: input, hidden and output,
-and that its hidden layer is connected to itself, apart from to the output layer. Let $n$, $m$ y $l$ the number of 
+Without loss of generality, assume a recurrent neural network has only three layers: input, hidden and output,
+and that its hidden layer is connected to itself, apart from to the output layer. Let $n$, $m$ and $l$ be the number of 
 existing neurons in the input, hidden and output layer, respectively. Consider $t$ as the indicator of the observation times. Defining
 
 \begin{itemize}
 \item[$\triangleright$] $x_{t}^{i}$ the inputs of the network at instant $t$,  $i=1,\dots,n$
 \item[$\triangleright$] $h_{t}^{j}$ the outputs of them hidden layer at instant $t$,  $j=1,\dots,m$ 
 \item[$\triangleright$] $y_{t}^{k}$ the final outputs of the network at instant $t$, $k=1,\dots,l$
-\item[$\triangleright$] $f$ y $g$ the exit function of the hidden and output layer, respectively
+\item[$\triangleright$] $f$ and $g$ the exit function of the hidden and output layer, respectively
 \item[$\triangleright$] $w^{1}_{ij}$ the weights associated to the connections between the neurons in the input layer and in the hidden one
 \item[$\triangleright$] $w^{2}_{jh}$ the weights associated to the connections between the neurons in the hidden layer
 \item[$\triangleright$] $w^{3}_{jk}$ the weights associated to the connections between the neurons in the hidden layer and in the output one
@@ -37,7 +37,7 @@ existing neurons in the input, hidden and output layer, respectively. Consider $
 
 A recurrent neural network can be defined by the following expression:
 
-$$ h_{t}^{j}=f\bigg(\sum_{i=1}^{n}w^{1}_{ij}x_{t}^{i} + \sum_{h=1}^{m}w^{2}_{jh}h_{t-1}^{h} + \theta^{1}_{j}\bigg),\hskip0.5cm y_{t}^{k} = g \bigg( \sum_{j=1}^{l}w^{3}_{jk}h_{t}^{j} + \theta^{2}_{j}\bigg).$$
+$$ h_{t}^{j}=f\bigg(\sum_{i=1}^{n}w^{1}_{ij}x_{t}^{i} + \sum_{h=1}^{m}w^{2}_{jh}h_{t-1}^{h} + \theta^{1}_{j}\bigg),\hskip0.5cm y_{t}^{k} = g \bigg( \sum_{j=1}^{m}w^{3}_{jk}h_{t}^{j} + \theta^{2}_{k}\bigg).$$
 
 
 From now on, the following matrix notation will be used in order to simplify the formulas defining the networks. This representation can be seen as considering that there is only one node per each layer.
@@ -53,13 +53,13 @@ From now on, the following matrix notation will be used in order to simplify the
 \end{itemize}
 
 
-So, considering this notation, the recurrent neural network can be defined by the following expresion:
+So, considering this notation, the recurrent neural network can be defined by the following expression:
 
 $$ h_{t}=f(W^{1}x_{t} + W^{2}h_{t-1} + \theta^{1}),\hskip0.5cm y_{t} = g (W^{3}h_{t} + \theta^{2}).$$
 
+
 If several hidden layers exist, a layer will receive as input the initial inputs, in addition to the outputs from the previous layer,
-and the final output layer will receive as inputs the outputs from all hidden layers. This makes the training of deep networks easier due to
-the number of processing steps from the bottom to the top of the network, and also it allows to soft the gradient vanishing poblem.
+and the final output layer will receive as inputs the outputs from all hidden layers. This makes the training of deep networks easier due to the number of processing steps from the bottom to the top of the network, and also it allows to soften the gradient vanishing problem.
 A representation of a network with several hidden layers can be seen in the next picture:
 
 
@@ -73,7 +73,7 @@ A representation of a network with several hidden layers can be seen in the next
 
 ### Long Short term Memory Networks (LSTM)
 
-LSTM are recurrent neural networks whose neurons in the hidden layer are replaced my memory cells. These cells have a 'gates system' that decides what information should be stores in the memory, what information should be forgotten and what should be tranferred to the rest of the layers. Typically, the activation functions considered in this kind of networks are the sigmoid funcion and the hyperbolic tangent. The structure of LSTM hidden layers can be represented, for a time instant $t$, as follows:
+LSTM are recurrent neural networks whose neurons in the hidden layer are replaced by memory cells. These cells have a 'gates system' that decides what information should be stored in the memory, what information should be forgotten and what should be transferred to the rest of the layers. Typically, the activation functions considered in this kind of networks are the sigmoid function and the hyperbolic tangent. The structure of LSTM hidden layers can be represented, for a time instant $t$, as follows:
 
 \begin{table}[htbp]
 	\begin{center}
@@ -116,7 +116,7 @@ Gated Recurrent Units, GRU, have less parameters than LSTM. They combine the inp
 \end{table}
 
 
-where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate.In each instant of time, based on $x_{t}$, the GRU generates the corresponding $h_{t}$.
+where $x_{t}$ is the vector representing the entrance to the corresponding layer at instant $t$, $\sigma$ represents the sigmoid function, $\varsigma$ the hyperbolic tangent function, and $W_{1}$, $W_{2}$ are the weight matrixes that we need to estimate. In each instant of time, based on $x_{t}$, the GRU generates the corresponding $h_{t}$.
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/GRU.png" width="450" height="350">
@@ -124,13 +124,13 @@ where $x_{t}$ is the vector representing the entrance to the corresponding layer
 
 ## Memory Networks
 
-Memory networks, as the name implies, consist of a memory $\textbf{m}$ (an array of objects named as $\textbf{m}_{i}$) on which we can read and write information, and four components. The input component, $I$, is the one in charge of encoding the input $x$ into the corresponding internal representation, $I(x)$. The generalization component, $G$, updates every memory $m_{i}$ with the new input: $m_{i}=G(m_{i}, I(x), \textbf{m})$, $\forall i=1,\dots,N$. The output component, $O$, is in charged of processing an output $o$ from the new input $I(x)$ and the memory $\textbf{m}$, $o=O(I(x),\textup{\textbf{m}})$. Finally, the response component $R$ decodes the output $o$ providing an interpretable answer $r$, like a text or an action: $r=R(o)$. In any of these components, any machine learning model could be used, but in this case we will focus on having a recurrent neural network in some of the components, obtaining this way a memory network.
+Memory networks, as the name implies, consist of a memory $\textbf{m}$ (an array of objects named as $\textbf{m}_{i}$) on which we can read and write information, and four components. The input component, $I$, is the one in charge of encoding the input $x$ into the corresponding internal representation, $I(x)$. The generalization component, $G$, updates every memory $m_{i}$ with the new input: $m_{i}=G(m_{i}, I(x), \textbf{m})$, $\forall i=1,\dots,N$. The output component, $O$, is in charge of processing an output $o$ from the new input $I(x)$ and the memory $\textbf{m}$, $o=O(I(x),\textup{\textbf{m}})$. Finally, the response component $R$ decodes the output $o$ providing an interpretable answer $r$, like a text or an action: $r=R(o)$. In any of these components, any machine learning model could be used, but in this case we will focus on having a recurrent neural network in some of the components, thus obtaining a memory network.
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memn2.png" width="550" height="220">
 </p>
 
-In the basic model, $I$ get an input $x$ that can be encoded into an internal representation before moving forward to the component $G$, and this component will it in the next available memory slot. The neural network is introduced in the component $O$, that in the case of question answering, will be the one in charged of finding the $k$ supporting sentences that answer the matter in question, being $k\leq N$ and $N$ the number of memory slots. $R$ will generate a response from the input $x$ (a question in this case) and the selected supporting memories. For $k$ recurrences, the schema of a memory neural network can be represented as follows:
+In the basic model, $I$ gets an input $x$ that can be encoded into an internal representation before moving forward to the component $G$, and this component will store it in the next available memory slot. The neural network is introduced in the component $O$, that in the case of question answering, will be the one in charge of finding the $k$ supporting sentences that answer the matter in question, being $k\leq N$ and $N$ the number of memory slots. $R$ will generate a response from the input $x$ (a question in this case) and the selected supporting memories. For $k$ recurrences, the schema of a memory neural network can be represented as follows:
 
 
 <p align="center">
