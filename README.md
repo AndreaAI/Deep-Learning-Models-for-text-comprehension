@@ -51,9 +51,6 @@ A representation of a network with several hidden layers can be seen in the next
 </p>
 
 
-### Backpropagation and gradient descendent
-...
-
 ### Long Short term Memory Networks (LSTM)
 
 LSTM are recurrent neural networks whose neurons in the hidden layer are replaced by memory cells. These cells have a 'gates system' that decides what information should be stored in the memory, what information should be forgotten and what should be transferred to the rest of the layers. Typically, the activation functions considered in this kind of networks are the sigmoid function and the hyperbolic tangent. The structure of LSTM hidden layers can be represented, for a time instant <img src="/tex/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode&sanitize=true" align=middle width=5.936097749999991pt height=20.221802699999984pt/>, as follows:
