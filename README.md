@@ -139,6 +139,30 @@ Doing this assumption, this model can be seen as a traditional recurrent neural 
 
 ### Key-Value Memory Networks (KV-MemNN)
 
+This model is based on the previous architecture (trained end-to-end), but it presents two different memory components, called key and value, with the idea of making easier to find relevant information in order to answer the question.
+
+It consists of two fases, one of addressing and reading the memory, and a second one of accessing it. Addressing phase is based on the key memory, when the relevant information regarding the question is stored, while the reading phase (the one returning the result) makes use of the value memory. The workflow schema is as follows:
+
+Being <img src="/tex/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode&sanitize=true" align=middle width=9.39498779999999pt height=14.15524440000002pt/> the question and  <img src="/tex/4cbc83949a13b825a3e2df6c8dde576a.svg?invert_in_darkmode&sanitize=true" align=middle width=153.69555134999996pt height=24.65753399999998pt/> the pairs of memory vectors about the available information. The phase of addressing to and reading the memory consists on three steps:
+
+
+<p align="center"><img src="/tex/386a4f1391c12b254cec92f00ba443ff.svg?invert_in_darkmode&sanitize=true" align=middle width=680.18329005pt height=306.97502055pt/></p>
+
+
+After this, the query is updated based on the obtained output <img src="/tex/7e1096128b080021db736ec4d7400387.svg?invert_in_darkmode&sanitize=true" align=middle width=7.968051299999991pt height=14.15524440000002pt/> and the previous query <img src="/tex/b7cb50b7b79e63db30c0699fb8966c67.svg?invert_in_darkmode&sanitize=true" align=middle width=88.72373894999998pt height=24.65753399999998pt/>, being the new query <img src="/tex/6ecff2833c66a6618bbb6efcc24360fa.svg?invert_in_darkmode&sanitize=true" align=middle width=105.25910009999998pt height=24.65753399999998pt/> where <img src="/tex/01920a9df1eef726d71f31bbfcddefaf.svg?invert_in_darkmode&sanitize=true" align=middle width=19.034022149999988pt height=22.465723500000017pt/> is a matrix <img src="/tex/464b650eae21973dbb134697df6a9cc5.svg?invert_in_darkmode&sanitize=true" align=middle width=37.20311759999999pt height=22.831056599999986pt/>. Then, after this first hop, <img src="/tex/5dad7cd2a4eeddc611906faa2e626fd0.svg?invert_in_darkmode&sanitize=true" align=middle width=43.31036984999999pt height=22.465723500000017pt/> more hops will be executed, repeating the steps 2 and 3, as well as the acces to the memory, considering for each hop
+<p align="center"><img src="/tex/a6ba03f0d344cc6d4302f4251ee59d6e.svg?invert_in_darkmode&sanitize=true" align=middle width=381.5132211pt height=20.95157625pt/></p> 
+
+Note that the response <img src="/tex/7e1096128b080021db736ec4d7400387.svg?invert_in_darkmode&sanitize=true" align=middle width=7.968051299999991pt height=14.15524440000002pt/> is also updated with every hop.
+
+These updates allow to have queries with more relevant information for the next accesses. After the <img src="/tex/7b9a0316a2fcd7f01cfd556eedf72e96.svg?invert_in_darkmode&sanitize=true" align=middle width=14.99998994999999pt height=22.465723500000017pt/> hops, the final prediction <img src="/tex/dc96518a9dfd5d97cebc61d4e90ac25b.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=22.831056599999986pt/> is calculated over all the possible outputs <img src="/tex/e46f5aa3f3f039ebf21a80fd0cf8fad9.svg?invert_in_darkmode&sanitize=true" align=middle width=12.710331149999991pt height=14.15524440000002pt/>:
+
+<p align="center"><img src="/tex/5dfb54df942a53486a8b81cbbd1d7e6a.svg?invert_in_darkmode&sanitize=true" align=middle width=265.58300999999994pt height=30.68681715pt/></p>
+
+where <img src="/tex/e46f5aa3f3f039ebf21a80fd0cf8fad9.svg?invert_in_darkmode&sanitize=true" align=middle width=12.710331149999991pt height=14.15524440000002pt/> are the possible candidates to be the answer (all the stored entities).
+
+The model learns to improve the access to the memory in order to return the desired objective <img src="/tex/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=14.15524440000002pt/> by minimizing the cross entropy loss between and the correct answer <img src="/tex/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=14.15524440000002pt/>. The matrixes <img src="/tex/2b3596588064ece6dde20889b652420e.svg?invert_in_darkmode&sanitize=true" align=middle width=120.74695544999997pt height=22.465723500000017pt/> are learnt by backpropagation and stochastic gradient descent methods.
+
+
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/kvmemnn2.png" width="700" height="580">
 </p>
