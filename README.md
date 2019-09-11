@@ -95,9 +95,28 @@ In the basic model, <img src="/tex/21fd4e8eecd6bdf1a4d3d6bd1fb8d733.svg?invert_i
 
 ### End-to-End Memory Networks (MemN2N)
 
+This network follows the same structure as the one already introduced, but it is trained end-to-end. This training strategy consists of training the whole system at the same time, from the input modules to the output ones. This implies that the network needs less supervision during the training phase, done by backpropagation, so it can be applied in more realistic scenarios. In this model, the recurrence can be found in the multiple accesses to the memory before generating an output.
+
+We will explain how it works when applying it to find answers about a specific question in a text:
+
+Consider <img src="/tex/073c6f4d0832ec9d6975a9d502dfa84d.svg?invert_in_darkmode&sanitize=true" align=middle width=70.81987439999999pt height=14.15524440000002pt/> the set of input data that need to be stored in the memory, <img src="/tex/d5c18a8ca1894fd3a7d25f242cbe8890.svg?invert_in_darkmode&sanitize=true" align=middle width=7.928106449999989pt height=14.15524440000002pt/> the question and <img src="/tex/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=14.15524440000002pt/> its answer. The model consists of three phases:
+
+<p align="center"><img src="/tex/bd588347dc1b8ebf2c9892891419da34.svg?invert_in_darkmode&sanitize=true" align=middle width=680.18321745pt height=306.06179505pt/></p>
+
+
+The model learns the matrixes <img src="/tex/ed2738ef0c65ae7cd917d49e69a57ef5.svg?invert_in_darkmode&sanitize=true" align=middle width=77.35950584999999pt height=22.465723500000017pt/> by minimizing the standard cross entropy loss between <img src="/tex/dc96518a9dfd5d97cebc61d4e90ac25b.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=22.831056599999986pt/> and the real answer <img src="/tex/44bc9d542a92714cac84e01cbbb7fd61.svg?invert_in_darkmode&sanitize=true" align=middle width=8.68915409999999pt height=14.15524440000002pt/>.
+
+
+
+
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memn2n21.png" width="550" height="300">
 </p>
+
+
+
+
+
 
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/memn2n22.png" width="700" height="300">
