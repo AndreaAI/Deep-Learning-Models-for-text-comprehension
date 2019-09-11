@@ -189,6 +189,37 @@ Doing this assumption, this model can be seen as a traditional recurrent neural 
 
 ### Key-Value Memory Networks (KV-MemNN)
 
+This model is based on the previous architecture (trained end-to-end), but it presents two different memory components, called key and value, with the idea of making easier to find relevant information in order to answer the question.
+
+It consists of two fases, one of addressing and reading the memory, and a second one of accessing it. Addressing phase is based on the key memory, when the relevant information regarding the question is stored, while the reading phase (the one returning the result) makes use of the value memory. The workflow schema is as follows:
+
+Being $x$ the question and  $(k_{1},v_{1}),\dots,(k_{M},v_{M})$ the pairs of memory vectors about the available information. The phase of addressing to and reading the memory consists on three steps:
+
+
+\begin{enumerate}
+	\item Pre-select a subset of the information where entities appearing in the question can be found ,and store it in the memories $(k_{h_{i}},v_{h_{i}}))$.
+	\item Input data $k_{h_{i}}$, $v_{h_{i}}$ and the questions $x$ are encoded and stored in the corresponding memories, and then relevance probabilities are assigned to the value memories, by comparing the key memories with the question:
+	$$ p_{h_{i}}=\text{Softmax}(A\Phi_{X}(x)\cdot A\Phi_{K}(k_{h_{i}})), $$	
+	with $\Phi_{\_}$ characteristic functions of dimension $D$, $A$ a matrix $d\times D.$\\
+	\item In the last phase or reading, the model returns the vector of the weighted sum of the values $v_{h_{i}}$ of the memories by their associated probabilities:	
+	$$ o = \sum_{i}p_{h_{i}}A\Phi_{V}(v_{h_{i}}).$$	
+\end{enumerate}
+
+
+After this, the query is updated based on the obtained output $o$ and the previous query $q=A\Phi_{X}(x)$, being the new query $q_{2}=R_{1}(q+o)$ where $R_{1}$ is a matrix $d\times d$. Then, after this first hop, $H-1$ more hops will be executed, repeating the steps 2 and 3, as well as the acces to the memory, considering for each hop
+$$p_{h_{i}}=\text{Softmax}(q_{j+1}^{T} A\Phi_{K}(k_{h_{i}})), \hskip0.5cm q_{j+1}=R_{j}(q_{j}+o). $$ 
+
+Note that the response $o$ is also updated with every hop.
+
+These updates allow to have queries with more relevant information for the next accesses. After the $H$ hops, the final prediction $\hat{a}$ is calculated over all the possible outputs $y_{i}$:
+
+$$ \hat{a}=\underset{i=1,\dots,C}{\text{argmax }}\text{Softmax}(q_{H+1}^{T}B\Phi_{Y}(y_{i})), $$
+
+where $y_{i}$ are the possible candidates to be the answer (all the stored entities).
+
+The model learns to improve the access to the memory in order to return the desired objective $a$ by minimizing the cross entropy loss between and the correct answer $a$. The matrixes $A,B,R_{1},\dots,R_{H}$ are learnt by backpropagation and stochastic gradient descent methods.
+
+
 <p align="center">
 <img src="https://github.com/AndreaAI/Deep-Learning-Models-for-text-comprehension/blob/master/images/kvmemnn2.png" width="700" height="580">
 </p>
